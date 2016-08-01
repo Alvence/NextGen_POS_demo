@@ -53,5 +53,9 @@ public class ItemID {
 		return true;
 	}
 
+	@Override
+	public String toString(){
+		return id;
+	}
 	
 }

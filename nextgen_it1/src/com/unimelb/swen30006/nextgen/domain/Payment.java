@@ -23,6 +23,10 @@ public class Payment
 		amount = cashTendered; 
 	}
 	
+	public void authorize(){
+		//do nothing now.
+	}
+	
 	public Money getAmount() {
 		return amount; 
 	}

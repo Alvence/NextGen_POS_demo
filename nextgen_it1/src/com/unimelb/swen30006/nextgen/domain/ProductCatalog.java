@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import com.unimelb.swen30006.nextgen.datatype.ItemID;
 import com.unimelb.swen30006.nextgen.datatype.Money;
@@ -28,13 +29,29 @@ public class ProductCatalog
 {
 	private Map<ItemID, ProductDescription> descriptions = new HashMap<ItemID, ProductDescription>();
 	
-	public ProductCatalog(){
-		
+	/**
+	 * constructor with directory of product description files
+	 * @param dir directory of product description files
+	 */
+	public ProductCatalog(String dir){
+		loadProduct(dir);
 	}
 	
-	public ProductCatalog(String dir){
+	/**
+	 * @param id item id
+	 * @return the product description of give id
+	 */
+	public ProductDescription getProductDescription(ItemID id)
+	{
+		return descriptions.get(id);
+	}
+	
+	public Set<ItemID> getIDs(){
+		return descriptions.keySet();
+	}
+	
+	private void loadProduct(String dir){
 		final File folder = new File(dir);
-		
 		for (final File fileEntry : folder.listFiles()) {
 			Properties prop = new Properties();
 			try {
@@ -49,10 +66,5 @@ public class ProductCatalog
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	public ProductDescription getProductDescription( ItemID id )
-	{
-		return descriptions.get(id);
 	}
 }
