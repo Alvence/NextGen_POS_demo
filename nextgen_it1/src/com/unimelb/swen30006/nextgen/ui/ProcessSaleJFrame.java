@@ -132,7 +132,7 @@ public class ProcessSaleJFrame extends JFrame {
 		btnMakePayment.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String paid = JOptionPane.showInputDialog(null, "Cash Paid");
+				String paid = JOptionPane.showInputDialog(null, "Total: "+register.getTotal()+"\nCash Paid");
 				if(paid == null){
 					JOptionPane.showMessageDialog(null, "Input not valid");
 					return;

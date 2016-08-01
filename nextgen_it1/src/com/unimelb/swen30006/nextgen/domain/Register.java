@@ -69,4 +69,7 @@ public class Register {
 		return currentSale.printReceipt();
 	}
 
+	public Money getTotal(){
+		return currentSale.getTotal();
+	}
 }
